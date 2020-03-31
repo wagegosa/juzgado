@@ -1,7 +1,5 @@
 <?php 
-  session_start();
-?>
-<?php  
+session_start();
 $alert = 'Se <strong>Almacenaron</strong> los datos corrrectamente';
 ?>
 <!DOCTYPE html>
@@ -42,57 +40,7 @@ $alert = 'Se <strong>Almacenaron</strong> los datos corrrectamente';
       <!-- Natura -->
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="Nombre">Naturaleza:</label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="number" class="form-control" name="naturaleza" rows="5" id="naturaleza"  placeholder="Naturaleza" required="required">
-          <span class="help-block" id="error"></span>
-        </div>
-      </div>
-      <!-- Nombre -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="Hora">Nombre Completo</label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre Completo">
-          <span class="help-block" id="error"></span>
-        </div>
-      </div>
-      <!-- telefono -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="email">Telefono:</label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono" minlength="7" maxlength="10">
-          <span class="help-block" id="error"></span>
-        </div>
-      </div>
-      <!-- Email -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="email">email:</label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-          <span class="help-block" id="error"></span>
-        </div>
-      </div>
-      <!-- Dirección -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="direccion">Dirección:</label>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección">
-          <span class="help-block" id="error"></span>
-        </div>
-      </div>
-      <!-- localidad -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="Localidad">Localidad:</label>
+          <label for="email">Naturaleza:</label>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
           <select name="localidad" id="localidad" class="form-control select2">
@@ -104,8 +52,73 @@ $alert = 'Se <strong>Almacenaron</strong> los datos corrrectamente';
           <span class="help-block" id="error"></span>
         </div>
       </div>
-      <!-- Lugar Votación -->
+      <!-- Consecutivo -->
       <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="Hora">Consecutiv:o</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <input type="text" class="form-control" name="consecutivo" id="consecutivo" placeholder="Consecutivo" required="required">
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Demandante -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="email">Demandante:</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <input type="number" class="form-control" name="demandante" id="demandante" placeholder="Demandante" minlength="7" maxlength="10">
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Demandado -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="email">Demandado:</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <input type="text" class="form-control" name="demandado" id="demandado" placeholder="Demandado" required="required">
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Fecha Reparto -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="direccion">Fecha Reparto:</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <input type="text" class="form-control" name="fec_reparto" id="fec_reparto" placeholder="Fecha Reparto">
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Fecha Terminación -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="fec_termina">Fecha Terminación:</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <input type="text" class="form-control" name="fec_termina" id="fec_termina" placeholder="Fecha Terminación">
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Novedad -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+          <label for="novedad">Novedad:</label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+          <select name="novedad" id="novedad" class="form-control select2" required="required">
+            <option value="0">Seleccione... </option>
+            <?php foreach ($local as $listarL): ?>
+              <option value="<?= $listarL->tbp_localida;?>"><?= $listarL->nombre;?></option>
+            <?php endforeach; ?>
+          </select>
+          <span class="help-block" id="error"></span>
+        </div>
+      </div>
+      <!-- Lugar Votación -->
+      <!-- <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
           <label for="Localidad">Lugar Votación:</label>
         </div>
@@ -118,14 +131,14 @@ $alert = 'Se <strong>Almacenaron</strong> los datos corrrectamente';
           </select>
           <span class="help-block" id="error"></span>
         </div>
-      </div>
-      <!-- ORGANIZADOR -->
+      </div> -->
+      <!-- Archivo -->
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-          <label for="direccion">Organizador:</label>
+          <label for="archivo">Archivo:</label>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-          <input type="text" class="form-control" name="organizador" id="organizador" placeholder="Organizador">
+          <input type="text" class="form-control" name="archivo" id="archivo" placeholder="Archivo">
           <span class="help-block" id="error"></span>
         </div>
       </div>
