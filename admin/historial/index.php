@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!empty($_SESSION['active']) && $_SESSION['perfil'] == "1"){
+if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   require "../../config/General/connexion.php";
   include "../../config/ClassNaturaleza/ClassNaturaleza_sel.php";
   $natu = new Naturaleza();
