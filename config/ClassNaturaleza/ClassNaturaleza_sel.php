@@ -31,7 +31,7 @@ class Naturaleza extends DataBase
     try
     {
       parent::Conexion();
-      $sql = "SELECT * FROM naturaleza where activo = 'Y'";
+      $sql = "SELECT * FROM naturaleza ORDER BY nombre ASC";
       $qry = $this->dbCon->prepare($sql);
       $qry->execute();
       $row = $qry->fetchAll(PDO::FETCH_OBJ);
