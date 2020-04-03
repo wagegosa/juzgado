@@ -25,10 +25,10 @@ class Novedad extends DataBase
   } 
   public function ListarNovedadAct(){
     try{
-      parrent::Conexion();
+      parent::Conexion();
       $sql = "SELECT * FROM novedad  WHERE activo = 'Y' ORDER BY nombre ASC";
       $qry = $this->dbCon->prepare($sql);
-      $qry->execute;
+      $qry->execute();
       $row = $qry->fetchAll(PDO::FETCH_OBJ);
       $qry->closeCursor();
       return $row;
