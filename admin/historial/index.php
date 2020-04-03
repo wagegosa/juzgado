@@ -3,8 +3,11 @@ session_start();
 if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   require "../../config/General/connexion.php";
   include "../../config/ClassNaturaleza/ClassNaturaleza_sel.php";
+  include '../../config/ClassNovedad/ClassNovedad_sel.php';
   $natu = new Naturaleza();
+  $nove = new Novedad();
   $naturaleza = $natu->listarNaturaleza();
+  $novedad = $nove->ListarNovedadAct();
   $alert = 'Se <strong>Almacenaron</strong> los datos corrrectamente';
 ?>
   <!DOCTYPE html>
@@ -114,8 +117,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
             <select name="novedad" id="novedad" class="form-control select2" required="required">
               <option value="0">Seleccione... </option>
-              <?php foreach ($local as $listarL): ?>
-                <option value="<?= $listarL->tbp_localida;?>"><?= $listarL->nombre;?></option>
+              <?php foreach ($novedad as $listarL): ?>
+                <option value="<?= $listarL->id_novedad;?>"><?= $listarL->nombre;?></option>
               <?php endforeach; ?>
             </select>
             <span class="help-block" id="error"></span>
