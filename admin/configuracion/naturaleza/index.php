@@ -17,6 +17,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <!--Biblioteca de iconos monocromáticos y símbolos-->
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+  <!--Paginación, filtrado de registros-->
+  <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
   <title>Naturaleza</title>
 </head>
 <body>
@@ -87,8 +89,39 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
       </div>
   </div>
   <!-- LIBRERIAS validadoras-->
-  <script src="../../css/assets/js/plugins/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/jquery.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/popper.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/custom.js"></script>
+  <script src="../../../css/assets/footable/js/footable.min.js"></script>
+  <script src="../../../css/assets/footable/js/configTable.js"></script>
+  <script>
+    function myFunction() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, j, visible;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        visible = false;
+        /* Obtenemos todas las celdas de la fila, no sólo la primera */
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j] && td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            visible = true;
+          }
+        }
+        if (visible === true) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 </body>
 </html>
 <?php } ?>
