@@ -5,11 +5,11 @@
 //Conexión a la base de datos
 require "../../config/General/connexion.php";
 //Llamado a la clase
-include "../../config/ClassHistorial/ClassHistorial_sel.php";
+/*include "../../config/ClassHistorial/ClassHistorial_sel.php";
 
 $usuario   = new Asistencia();
 $Lista = $usuario->listarAsistencia();
-
+*/
 $alert = 'Se <strong>Actualizarón</strong> los datos corrrectamente';
 ?>
   <!DOCTYPE html>
