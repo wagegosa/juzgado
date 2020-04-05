@@ -1,11 +1,12 @@
 <?php 
 session_start();
-//Conexión a la base de datos
-require "../../config/General/connexion.php";
-//Llamado a la clase
-include "../../config/ClassPerfil/ClassPerfil_sel.php";
-$perfil   = new Perfil();
-$Lista = $perfil->listarPerfil();
+if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
+  //Conexión a la base de datos
+  require "../../../config/General/connexion.php";
+  //Llamado a la clase
+  include "../../../config/ClassPerfil/ClassPerfil_sel.php";
+  $perfil   = new Perfil();
+  $Lista = $perfil->listarPerfil();
 ?>
   <!DOCTYPE html>
   <html lang="es" ng-app>
@@ -14,19 +15,18 @@ $Lista = $perfil->listarPerfil();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap núcleo CSS-->
-    <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.min.css">
     <!--Biblioteca de iconos monocromáticos y símbolos-->
-    <link rel="stylesheet" href="../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
-    <link rel="stylesheet" href="../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
+    <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
     <!--Paginación, filtrado de registros-->
-    <link rel="stylesheet" href="../../css/assets/footable/css/footable.bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
     <title>Perfil</title>
   </head>
-
   <body>
     <div class="container">
-      <?php   include "../../plantillas/menu/menu_admin2.php"; ?>
+      <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
       <div class="row">
         <div class="col-md-12">
           <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Perfil</h3>
@@ -89,12 +89,12 @@ $Lista = $perfil->listarPerfil();
         </div>
       </div>
     </div>
-    <script src="../../css/assets/bootstrap/js/jquery.min.js"></script>
-    <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../css/assets/bootstrap/js/popper.min.js"></script>
-    <script src="../../css/assets/bootstrap/js/custom.js"></script>
-    <script src="../../css/assets/footable/js/footable.min.js"></script>
-    <script src="../../css/assets/footable/js/configTable.js"></script>
+    <script src="../../../css/assets/bootstrap/js/jquery.min.js"></script>
+    <script src="../../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../css/assets/bootstrap/js/popper.min.js"></script>
+    <script src="../../../css/assets/bootstrap/js/custom.js"></script>
+    <script src="../../../css/assets/footable/js/footable.min.js"></script>
+    <script src="../../../css/assets/footable/js/configTable.js"></script>
     <script>
       function myFunction() {
       // Declare variables 
@@ -122,5 +122,5 @@ $Lista = $perfil->listarPerfil();
     }
   </script>
 </body>
-
 </html>
+<?php } ?>
