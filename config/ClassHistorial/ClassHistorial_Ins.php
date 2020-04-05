@@ -5,32 +5,31 @@
 require('../General/connexion.php');
 //capturamos
 // $reunion = $_POST['reunion'];
-$num_cedula= $_POST['num_cedula'];
-$nombre= $_POST['nombre'];
-$telefono= $_POST['telefono'];
-$email= $_POST['email'];
-$direccion= $_POST['direccion'];
-$localidad= $_POST['localidad'];
-if($localidad == 0){
-  $localidad = "21";
-} 
-$lugar_votacio = $_POST['lugar_votacio'];
-if($lugar_votacio == 0){
-  $lugar_votacio = "643";
-}
-$organizador = $_POST['organizador'];
-$usuario = $_POST['usuario'];
+$naturaleza= $_POST['naturaleza'];
+// $consecutivo= $_POST['consecutivo'];
+$demandante= $_POST['demandante'];
+$demandado= $_POST['demandado'];
+$fec_reparto= $_POST['fec_reparto'];
+$fec_termina= $_POST['fec_termina'];
+$novedad = $_POST['novedad'];
+$archivo = $_POST['archivo'];
 //Validamos que el metodo POST este enviando datos.
 if ($_POST != "" ){
   try{
     $Con= new DataBase();
     $Conexion= $Con->Conexion();
-    $query = "INSERT INTO gloriadiaz.tba_regist_asiste 
-                         (cedula, nom_comple, telefono, correo, dir_reside, localida, lugar_votacio, usuario, activo, fec_creaci, fec_modifi, organizador) 
-                  VALUES ('$num_cedula', '$nombre', '$telefono', '$email', '$direccion', '$localidad', '$lugar_votacio', '$usuario', 'Y', '$hoy', '$hoy', '$organizador')";
+    $query = "INSERT INTO historial
+                          (naturaleza, demandante, demandado, 
+                          fe_reparto, fe_terminacion, novedad, archivo) 
+                   VALUES ('$naturaleza', '$demandante', 
+                          '$demandado', '$fec_reparto', '$fec_termina', 
+                          '$novedad', '$archivo')";
+    // echo "<pre>";
+    // print_r($query);
+    // echo "</pre>";
+    // die();
     $Conexion->query($query);
-    echo "<script>alert('¡Se almaceno correctamente.!');</script>";
-    header("Location: ../../operario/index.php?c=1");
+    header("Location: ../../admin/historial/index.php?c=1");
   }
   catch ( PDOException $e ){
     die("Ha ocurrido un error inesperado en la base de datos.<br>".$e->getMessage());
