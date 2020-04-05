@@ -1,50 +1,48 @@
 <?php 
   session_start();
+if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
+  //Conexión a la base de datos
+  require "../../../config/General/connexion.php";
+  // Class
+  include "../../../config/ClassPerfil/ClassPerfil_sel.php";
+
+  $Con= new DataBase();
+  $Conn= $Con->Conexion();
+  $perfil = new Perfil();
+  $per    = $perfil->listarPerfilActi();
+
+  $_GET['id'] ? $_GET['id'] : '';
+
+  try {
+    $query="SELECT * FROM juzgado.usuario WHERE idUsuario = ".$_GET['id'];
+    $Resul= $Conn->prepare($query);
+    $Resul->bindParam(':id', $id);
+    $Resul->execute();
+    $Resul->setFetchMode(PDO::FETCH_ASSOC);
+    // $Resul->setFetchMode(PDO::FETCH_ASSOC);
+    $Resultado= $Resul->rowCount();
+
+    if($Resultado!=0){
+      while ($R= $Resul->fetch()):
 ?>
-<?php
-//Conexión a la base de datos
-require "../../config/General/connexion.php";
-// Class
-include "../../config/ClassPerfil/ClassPerfil_sel.php";
-
-$Con= new DataBase();
-$Conn= $Con->Conexion();
-$perfil = new Perfil();
-$per    = $perfil->listarPerfilActi();
-
-$_GET['id'] ? $_GET['id'] : '';
-
-try {
-  $query="SELECT * FROM gloriadiaz.tba_usuario WHERE idtba_Usuario = ".$_GET['id'];
-  $Resul= $Conn->prepare($query);
-  $Resul->bindParam(':id', $id);
-  $Resul->execute();
-  $Resul->setFetchMode(PDO::FETCH_ASSOC);
-  // $Resul->setFetchMode(PDO::FETCH_ASSOC);
-  $Resultado= $Resul->rowCount();
-
-  if($Resultado!=0){
-    while ($R= $Resul->fetch()):
-  ?>
 <!DOCTYPE html>
 <html lang="es" ng-app>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Bootstrap núcleo CSS-->
-  <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.min.css">
   <!--Biblioteca de iconos monocromáticos y símbolos-->
-  <link rel="stylesheet" href="../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
-  <link rel="stylesheet" href="../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
+  <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
-  <link rel="stylesheet" href="../../css/assets/footable/css/footable.bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
   <title>Usuarios</title>
 </head>
 <body>
   <div class="container">
-    <?php   include "../../plantillas/menu/menu_admin2.php"; ?>
+    <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
     <div class="row">
       <div class="col-md-12">
         <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Usuarios </h3>
@@ -56,7 +54,7 @@ try {
       </div>
     </div>
     <!-- Formulario -->
-    <form method="post" autocomplete="on" id="frm" action="../../config/ClassUsuario/ClassUsuario_upd.php">
+    <form method="post" autocomplete="on" id="frm" action="../../../config/ClassUsuario/ClassUsuario_upd.php">
       <!-- nombre -->
       <div class="row">
         <div class="col-md-4">
@@ -143,19 +141,18 @@ try {
       </div>
     </form>
   </div>
-</body>
   <!-- LIBRERIAS validadoras-->
-  <script src="../../css/assets/bootstrap/js/jquery.min.js"></script>
-  <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../../css/assets/bootstrap/js/popper.min.js"></script>
-  <script src="../../css/assets/bootstrap/js/custom.js"></script>
+  <script src="../../../css/assets/bootstrap/js/jquery.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/popper.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/custom.js"></script>
   <!-- Plugin para la validación de formularios -->
-  <script src="../../css/assets/jquery_validation/dist/jquery.validate.min.js"></script>
-  <script src="../../css/assets/jquery_validation/dist/localization/messages_es.js"></script>
+  <script src="../../../css/assets/jquery_validation/dist/jquery.validate.min.js"></script>
+  <script src="../../../css/assets/jquery_validation/dist/localization/messages_es.js"></script>
   <!-- Plugin para listado, navegación y filtrado en tablas -->
-  <script src="../../css/assets/footable/js/footable.min.js"></script>
-  <script src="../../css/assets/footable/js/configTable.js"></script>
-    <script>
+  <script src="../../../css/assets/footable/js/footable.min.js"></script>
+  <script src="../../../css/assets/footable/js/configTable.js"></script>
+  <script>
     $(document).ready(function() {
       $("#frm").validate({
         rules: {
@@ -170,13 +167,15 @@ try {
       })
     });
   </script>
-  </html>
-  <?php    
-    endwhile;
-  }else{
-    echo "No se encontraron registros con el ID " .$id;
+</body>
+</html>
+<?php    
+      endwhile;
+    }else{
+      echo "No se encontraron registros con el ID " .$id;
+    }
+  } catch (PDOException $e) {
+    die("Error occurred:" . $e->getMessage());
   }
-} catch (PDOException $e) {
-  die("Error occurred:" . $e->getMessage());
 }
 ?>
