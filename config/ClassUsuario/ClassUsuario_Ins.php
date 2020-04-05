@@ -12,12 +12,11 @@ if ($_POST != "" ){
   try{
     $Con= new DataBase();
     $Conexion= $Con->Conexion();
-    $query = "INSERT INTO gloriadiaz.tba_usuario 
+    $query = "INSERT INTO juzgado.usuario 
                          (perfil, usuario, pass, nom_comple, fec_creaci, fec_modifi, activo) 
                   VALUES ('$perfil', '$usaurio', '$pass', '$nom_comple', now(), now(), '$activo')";
     $Conexion->query($query);
-    echo "<script>alert('¡Se almaceno correctamente.!');</script>";
-    header("Location: ../../admin/usuarios/index.php");
+    header("Location: ../../admin/configuracion/usuario/index.php?c=1");
   }
   catch ( PDOException $e ){
     die("Ha ocurrido un error inesperado en la base de datos.<br>".$e->getMessage());

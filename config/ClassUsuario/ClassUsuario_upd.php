@@ -13,9 +13,9 @@ if($_POST != "" ){
   try{
     $Con= new DataBase();
     $Conexion= $Con->Conexion();
-    $query = "UPDATE gloriadiaz.tba_usuario 
+    $query = "UPDATE usuario 
                  SET perfil = '$perfil', usuario = '$usaurio', pass = '$pass', nom_comple = '$nom_comple', activo = '$activo', fec_modifi =  now()
-               WHERE idtba_Usuario = '$id'";
+               WHERE idUsuario = '$id'";
     $Conexion->query($query);
     $Resul= $Conexion->prepare($query);
     $Resul->bindParam(':id', $id, PDO::PARAM_STR, 100);
@@ -24,7 +24,7 @@ if($_POST != "" ){
     $Resultado= $Resul->rowCount();
     echo "<script>alert('¡Se almaceno correctamente.!');</script>";
     if($Resultado == 0){
-      header("Location: ../../admin/usuarios/index.php");
+      header("Location: ../../admin/configuracion/usuario/index.php?c=1");
       die;
     }else{
         echo "Fallo la redirección";

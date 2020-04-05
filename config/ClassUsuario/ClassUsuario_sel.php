@@ -10,10 +10,10 @@ class Usuario extends DataBase
     try
     {
       parent::Conexion();
-      $sql = "SELECT A.idtba_Usuario, B.nombre AS perfil, A.usuario, A.pass, A.nom_comple, DATE(A.fec_creaci) AS fec_creaci, 
+      $sql = "SELECT A.idUsuario, B.nombre AS perfil, A.usuario, A.pass, A.nom_comple, DATE(A.fec_creaci) AS fec_creaci, 
                      A.fec_modifi, A.activo 
-                FROM gloriadiaz.tba_usuario A
-          INNER JOIN gloriadiaz.tbp_perfil B ON (A.perfil = B.idtbp_perfil )
+                FROM usuario A
+          INNER JOIN juzgado.perfil B ON (A.perfil = B.idperfil )
             ORDER BY nom_comple ASC";
       $qry = $this->dbCon->prepare($sql);
       $qry->execute();
