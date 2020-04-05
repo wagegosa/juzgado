@@ -21,7 +21,7 @@ if($_POST != "" ){
     $Resultado= $Resul->rowCount();
     echo "<script>alert('¡Se almaceno correctamente.!');</script>";
     if($Resultado == 0){
-      header("Location: ../../admin/perfil/index.php");
+      header("Location: ../../admin/configuracion/perfil/index.php");
       die;
     }else{
         echo "Fallo la redirección";

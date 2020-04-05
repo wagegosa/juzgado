@@ -16,7 +16,7 @@ if ($_POST != "" ){
 // die;
     $Conexion->query($query);
     echo "<script>alert('¡Se almaceno correctamente.!');</script>";
-    header("Location: ../../admin/perfil/index.php");
+    header("Location: ../../admin/configuracion/perfil/index.php");
   }
   catch ( PDOException $e ){
     die("Ha ocurrido un error inesperado en la base de datos.<br>".$e->getMessage());
