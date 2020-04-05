@@ -1,6 +1,9 @@
 <?php 
 session_start();
 if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
+  date_default_timezone_set('America/Bogota');
+  $hoy = date('Y-m-d');
+  $min = date("Y-m-d",strtotime($hoy."- 6 month")); 
   require "../../config/General/connexion.php";
   include "../../config/ClassNaturaleza/ClassNaturaleza_sel.php";
   include '../../config/ClassNovedad/ClassNovedad_sel.php';
@@ -95,7 +98,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="direccion">Fecha Reparto:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="date" class="form-control" name="fec_reparto" id="fec_reparto" placeholder="Fecha Reparto" required="required">
+            <input type="date" class="form-control" name="fec_reparto" id="fec_reparto" placeholder="Fecha Reparto" min="<?= $min;?>" max="<?= $hoy; ?>" required="required">
             <span class="help-block" id="error"></span>
           </div>
         </div>
@@ -105,7 +108,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="fec_termina">Fecha Terminación:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="date" class="form-control" name="fec_termina" id="fec_termina" placeholder="Fecha Terminación">
+            <input type="date" class="form-control" name="fec_termina" id="fec_termina" min="<?= $min;?>" max="<?= $hoy;?>" placeholder="Fecha Terminación">
             <span class="help-block" id="error"></span>
           </div>
         </div>
