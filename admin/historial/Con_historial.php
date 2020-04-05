@@ -5,11 +5,9 @@
 //Conexión a la base de datos
 require "../../config/General/connexion.php";
 //Llamado a la clase
-/*include "../../config/ClassHistorial/ClassHistorial_sel.php";
-
-$usuario   = new Asistencia();
-$Lista = $usuario->listarAsistencia();
-*/
+include "../../config/ClassHistorial/ClassHistorial_sel.php";
+$histo   = new Historial();
+$historial = $histo->listarHistorial();
 $alert = 'Se <strong>Actualizarón</strong> los datos corrrectamente';
 ?>
   <!DOCTYPE html>
@@ -77,17 +75,21 @@ $alert = 'Se <strong>Actualizarón</strong> los datos corrrectamente';
             <tbody>
               <?php 
                 $c=1;
-                foreach($Lista as $libro):
+                foreach($historial as $libro):
               ?>
               <tr>
-                <td><?= $c++; ?></td>
+                <!-- <td><?= $c++; ?></td> -->
                 <td><?= $libro->naturaleza; ?></td>
                 <td><?= $libro->consecutivo; ?></td>
                 <td><?= $libro->demandante; ?></td>
                 <td><?= $libro->demandado; ?></td>
                 <td><?= $libro->fe_reparto; ?></td>
                 <td><?= $libro->fe_terminacion; ?></td>
-                <td><?= $libro->Novedada; ?></td>
+                <td><?php if($libro->novedad !== null){
+                  echo $libro->novedad;
+                }else{
+                  echo "";
+                } ?></td>
                 <td><?= $libro->archivo; ?></td>
                 <td>
                   <a href="Edi_historial.php?id=<?= $libro->consecutivo;?>" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
