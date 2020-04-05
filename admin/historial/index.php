@@ -50,7 +50,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="email">Naturaleza:</label>
           </div>
           <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <select name="localidad" id="localidad" class="form-control select2">
+            <select name="naturaleza" id="naturaleza" class="form-control select2" required="required">
               <option value="0">Seleccione... </option>
               <?php foreach ($naturaleza as $listarN): ?>
                 <option value="<?= $listarN->id_naturaleza;?>"><?= $listarN->nombre;?></option>
@@ -60,7 +60,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
           </div>
         </div>
         <!-- Consecutivo -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
             <label for="Hora">Consecutiv:o</label>
           </div>
@@ -68,14 +68,14 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <input type="text" class="form-control" name="consecutivo" id="consecutivo" placeholder="Consecutivo" required="required">
             <span class="help-block" id="error"></span>
           </div>
-        </div>
+        </div> -->
         <!-- Demandante -->
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
             <label for="email">Demandante:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="number" class="form-control" name="demandante" id="demandante" placeholder="Demandante" minlength="7" maxlength="10">
+            <input type="text" class="form-control" name="demandante" id="demandante" placeholder="Demandante" minlength="7" maxlength="120" required="required">
             <span class="help-block" id="error"></span>
           </div>
         </div>
@@ -85,7 +85,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="email">Demandado:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="text" class="form-control" name="demandado" id="demandado" placeholder="Demandado" required="required">
+            <input type="text" class="form-control" name="demandado" id="demandado" placeholder="Demandado" minlength="7" maxlength="120" required="required">
             <span class="help-block" id="error"></span>
           </div>
         </div>
@@ -95,7 +95,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="direccion">Fecha Reparto:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="text" class="form-control" name="fec_reparto" id="fec_reparto" placeholder="Fecha Reparto">
+            <input type="date" class="form-control" name="fec_reparto" id="fec_reparto" placeholder="Fecha Reparto" required="required">
             <span class="help-block" id="error"></span>
           </div>
         </div>
@@ -105,7 +105,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <label for="fec_termina">Fecha Terminación:</label>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="text" class="form-control" name="fec_termina" id="fec_termina" placeholder="Fecha Terminación">
+            <input type="date" class="form-control" name="fec_termina" id="fec_termina" placeholder="Fecha Terminación">
             <span class="help-block" id="error"></span>
           </div>
         </div>
@@ -136,10 +136,10 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
         </div>
         <!-- Boton -->
         <div><br> 
-          <input type="hidden" id="reunión" name="reunion" value="<?=$R['idtba_reunion'];?>">
           <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar</button>
         </div>
       </form>
+    </div>
     <!-- LIBRERIAS validadoras-->
     <script src="../../css/assets/js/plugins/jquery/jquery-3.2.1.min.js"></script>
     <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
