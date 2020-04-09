@@ -7,30 +7,26 @@ if(!empty($_SESSION['active'])){
       header('location: ./admin/');
       break;
 
-    case '2':
-      header('location: ./operario/');
-      break;
+    // case '2':
+    //   header('location: ./operario/');
+    //   break;
 
-    case '3':
-      header('location: ./empresa/');
-      break;
+    // case '3':
+    //   header('location: ./empresa/');
+    //   break;
   }
 }else{
   if(!empty($_POST)){
-    if(empty($_POST['username']) || empty($_POST['pass'])){
-      $alert = 'Ingrese su usuario y su calve';
-    }else{
       require_once "./config/General/connexion.php";
       $conn= new DataBase();
       $link = $conn->Conectarse();
-      $user = $_POST['username'];
-      // $pass = md5($_POST['pass']);
+      $user = $_POST['usuario'];
       $pass = $_POST['pass'];
       $query = "SELECT idUsuario, perfil, usuario, nom_comple FROM juzgado.usuario WHERE usuario = '$user' AND pass = '$pass'  AND activo = 'Y'";
-    // echo "<pre>";
-    // print_r($query);
-    // echo "</pre>";
-    // die();
+	    // echo "<pre>";
+	    // print_r($query);
+	    // echo "</pre>";
+	    // die();
       $result = mysqli_query($link,$query);
       mysqli_close($link);
       $resulta = mysqli_num_rows($result);
@@ -46,86 +42,101 @@ if(!empty($_SESSION['active'])){
             header('location: ./admin/');
             break;
           
-          case '2':
-            header('location: ./operario/');
-            break;
+          // case '2':
+          //   header('location: ./operario/');
+          //   break;
 
-          case '3':
-            header('location: ./empresa/');
-            break;
+          // case '3':
+          //   header('location: ./empresa/');
+          //   break;
         }
       }else{
         $alert = 'El <strong>usuario</strong> o la <strong>clave</strong> son incorrectos';
         session_destroy();
       }
-    }
   }
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Asistencias</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="css/login/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/login/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/login/icon-font.min.css">
-  <link rel="stylesheet" type="text/css" href="css/login/animate.css">
-  <link rel="stylesheet" type="text/css" href="css/login/hamburgers.min.css">
-  <link rel="stylesheet" type="text/css" href="css/login/select2.min.css">
-  <link rel="stylesheet" type="text/css" href="css/login/util.css">
-  <link rel="stylesheet" type="text/css" href="css/login/main.css">
+	<title>Juzgado</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="img/RamaJudicial.png"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="css/login_v2/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/login_v2/css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login_v2/css/main.css">
+	<!--===============================================================================================-->
 </head>
 <body>
-  <div class="limiter">
-    <div class="container-login100" >
-      <div class="wrap-login100 p-t-190 p-b-30">
-        <form method="post" autocomplete="on" id="frm" action="">
-          <div class="login100-form-avatar">
-            <img src="img/RamaJudicial.png" alt="AVATAR">
-          </div>
-          <span class="login100-form-title p-t-20 p-b-45">
-            Login
-          </span>
-          <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
-            <input class="input100" type="text" name="username" id="username" placeholder="Usuario">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <i class="fa fa-user"></i>
-            </span>
-          </div>
-          <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
-            <input class="input100" type="password" name="pass" id="pass" placeholder="Password">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <i class="fa fa-lock"></i>
-            </span>
-          </div>
-          <?php if($alert != "" || $alert != null){ ?>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post" autocomplete="off" id="frm" action="">
+					<span class="login100-form-title p-b-48">
+						<img src="img/RamaJudicial.png" alt="AVATAR" width="100" height="100">
+					</span>
+					<div class="wrap-input100 validate-input" data-validate = "Ingrese usuario">
+						<input class="input100" type="text" name="usuario" id="usuario">
+						<span class="focus-input100" data-placeholder="Usuario"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Ingrese contraseña">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+					<?php if($alert != "" || $alert != null){ ?>
           <div class="alert alert-warning"><?php echo isset($alert) ? $alert : ''; ?></div>
           <?php } ?>
-          <div class="container-login100-form-btn p-t-10">
-            <button class="login100-form-btn">
-              Login
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <script src="css/login/js/jquery-3.2.1.min.js" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script src="css/login/js/popper.js" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script src="css/login/js/bootstrap.min.js" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script src="css/login/js/select2.min.js" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script src="css/login/js/main.js" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script async src="css/login/js/js?id=UA-23581568-13" type="f5172d9c3efe526f7cda9df6-text/javascript"></script>
-  <script type="f5172d9c3efe526f7cda9df6-text/javascript">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-23581568-13');
-  </script>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<!-- <script src="css/assets/animsition/js/animsition.min.js"></scrip> -->
+	<script src="css/login_v2/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/vendor/bootstrap/js/popper.js"></script>
+	<script src="css/login_v2/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/vendor/daterangepicker/moment.min.js"></script>
+	<script src="css/login_v2/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="css/login_v2/js/main.js"></script>
+
 </body>
 </html>
