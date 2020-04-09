@@ -2,6 +2,10 @@
 //llamamos a la connecion
 require('../General/connexion.php');
 
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+// die();
 //capturamos
 $id= $_POST['id'];
 $perfil= $_POST['perfil'];
@@ -25,7 +29,6 @@ if($_POST != "" ){
     echo "<script>alert('¡Se almaceno correctamente.!');</script>";
     if($Resultado == 0){
       header("Location: ../../admin/configuracion/usuario/index.php?c=1");
-      die;
     }else{
         echo "Fallo la redirección";
         exit();

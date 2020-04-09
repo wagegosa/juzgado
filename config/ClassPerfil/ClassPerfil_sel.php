@@ -1,5 +1,4 @@
  <?php
-
 class Perfil extends DataBase
 {
 	public $idtbp_perfil;
@@ -10,7 +9,7 @@ class Perfil extends DataBase
     try
     {
       parent::Conexion();
-      $sql = "SELECT * FROM gloriadiaz.tbp_perfil";
+      $sql = "SELECT * FROM juzgado.perfil";
       $qry = $this->dbCon->prepare($sql);
       $qry->execute();
       $row = $qry->fetchAll(PDO::FETCH_OBJ);
@@ -28,7 +27,7 @@ class Perfil extends DataBase
     try
     {
       parent::Conexion();
-      $sql = "SELECT * FROM gloriadiaz.tbp_perfil where activo = 'Y'";
+      $sql = "SELECT * FROM juzgado.perfil where activo = 'Y'";
       $qry = $this->dbCon->prepare($sql);
       $qry->execute();
       $row = $qry->fetchAll(PDO::FETCH_OBJ);

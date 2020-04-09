@@ -1,7 +1,6 @@
  <?php
 //llamamos a la connecion
 require('../General/connexion.php');
-
 //capturamos
 $id= $_POST['id'];
 $perfil= $_POST['perfil'];
@@ -10,9 +9,9 @@ if($_POST != "" ){
   try{
     $Con= new DataBase();
     $Conexion= $Con->Conexion();
-    $query = "UPDATE gloriadiaz.tbp_perfil 
+    $query = "UPDATE juzgado.perfil 
                  SET nombre = '$perfil', activo = '$activo' 
-               WHERE idtbp_perfil = '$id'";
+               WHERE idperfil = '$id'";
     $Conexion->query($query);
     $Resul= $Conexion->prepare($query);
     $Resul->bindParam(':id', $id, PDO::PARAM_STR, 100);

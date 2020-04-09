@@ -9,7 +9,7 @@ if ($_POST != "" ){
   try{
     $Con= new DataBase();
     $Conexion= $Con->Conexion();
-    $query = "INSERT INTO gloriadiaz.tbp_perfil(nombre, activo) VALUES ('$perfil', '$activo');";
+    $query = "INSERT INTO juzgado.perfil(nombre, activo) VALUES ('$perfil', '$activo');";
 // echo "<pre>";
 // print_r($query);
 // echo "<pre>";
