@@ -14,6 +14,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../../img/RamaJudicial.png"/>
   <!--Bootstrap núcleo CSS-->
   <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" media="screen" href="../../../css/assets/bootstrap/css/bootstrap.min.css">

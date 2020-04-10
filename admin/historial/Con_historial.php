@@ -16,6 +16,7 @@ $alert = 'Se <strong>Actualizarón</strong> los datos corrrectamente';
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../img/RamaJudicial.png"/>
     <!--Bootstrap núcleo CSS-->
     <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.min.css">

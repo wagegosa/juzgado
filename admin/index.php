@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../img/RamaJudicial.png"/>
   <!--Bootstrap núcleo CSS-->
   <link rel="stylesheet" media="screen" href="../css/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" media="screen" href="../css/assets/bootstrap/css/bootstrap.min.css">
@@ -14,7 +15,7 @@
   <link rel="stylesheet" href="../css/assets/footable/css/footable.bootstrap.min.css">
   <!-- style para menu --> 
   <link rel="stylesheet" type="text/css" href="../css/menu/css/menu.css">
-  <title>Reuniones</title>
+  <title>Juzgados</title>
 </head>
 <body>
   <div class="container">

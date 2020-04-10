@@ -40,6 +40,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../img/RamaJudicial.png"/>
   <!--Bootstrap núcleo CSS-->
   <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" media="screen" href="../../css/assets/bootstrap/css/bootstrap.min.css">
@@ -51,6 +52,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <!-- Plugin para cuadro de selección personalizable con soporte para búsqueda. -->
   <link rel="stylesheet" href="../../css/plugins/select2/select2.min.css">
   <link rel="stylesheet" href="../../css/plugins/select2/select2-bootstrap.css">
+  <!-- style para menu --> 
+  <link rel="stylesheet" type="text/css" href="../../css/menu/css/menu.css">
 
   <title>Asistentes</title>
 </head>
@@ -186,6 +189,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
     <!-- Plugin para cuadro de selección personalizable con soporte para búsqueda. -->
     <script src="../../js/plugins/select2/select2.full.js"></script>
     <script src="../../js/plugins/select2/es.js"></script>
+    <!-- para el menu -->
+    <script src="../../css/menu/js/menu.js"></script>
     <script>
       $(document).ready(function() {
         $(".select2").select2({
