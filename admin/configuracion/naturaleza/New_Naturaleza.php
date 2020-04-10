@@ -13,11 +13,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <!--Biblioteca de iconos monocromáticos y símbolos-->
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/glyphicons-pro/css/glyphicons-pro.css">
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
+  <!-- menu -->
+  <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
   <title>Naturaleza</title>
 </head>
 <body>
   <div class="container">
-    <?php include "../../../plantillas/menu/menu_admin2.php"; 
+    <?php include "../../../plantillas/menu/menu_admin3.php"; 
     if($_GET != null){?>
       <div class="alert alert-success"><?php echo isset($alert) ? $alert : ''; ?></div>
     <?php } ?>
@@ -56,8 +58,14 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
     </form>
   </div>
   <!-- LIBRERIAS validadoras-->
-  <script src="../../css/assets/js/plugins/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/jquery.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/popper.min.js"></script>
+  <script src="../../../css/assets/bootstrap/js/custom.js"></script>
+  <script src="../../../css/assets/footable/js/footable.min.js"></script>
+  <script src="../../../css/assets/footable/js/configTable.js"></script>
+  <!-- menu -->
+  <script src="../../../css/menu/js/menu.js"></script>
 </body>
 </html>
 <?php } ?>

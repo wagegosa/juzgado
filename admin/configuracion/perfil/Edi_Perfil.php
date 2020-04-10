@@ -10,7 +10,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   $_GET['id'] ? $_GET['id'] : '';
 
   try {
-    $query="SELECT * FROM gloriadiaz.tbp_perfil WHERE idtbp_perfil = ".$_GET['id'];
+    $query="SELECT * FROM juzgado.perfil WHERE idperfil = ".$_GET['id'];
     $Resul= $Conn->prepare($query);
     $Resul->bindParam(':id', $id);
     $Resul->execute();
@@ -35,12 +35,14 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
   <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
+  <!-- menu -->
+  <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
   <title>Encuestas</title>
 </head>
 
 <body>
   <div class="container">
-    <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
+    <?php   include "../../../plantillas/menu/menu_admin3.php"; ?>
     <div class="row">
       <div class="col-md-12">
         <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Preguntas</h3>
@@ -86,7 +88,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
         </div>
       </div>
       <div><br>
-        <input type="hidden" name="id" id="id" value="<?= $R['idtbp_perfil']?>">
+        <input type="hidden" name="id" id="id" value="<?= $R['idperfil']?>">
         <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar</button>
         <!--<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</a>-->
       </div>
@@ -104,6 +106,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
 <!-- Plugin para listado, navegación y filtrado en tablas -->
 <script src="../../../css/assets/footable/js/footable.min.js"></script>
 <script src="../../../css/assets/footable/js/configTable.js"></script>
+<!-- menu -->
+<script src="../../../css/menu/js/menu.js"></script>
 <script>
   $(document).ready(function() {
     $("#frm").validate({

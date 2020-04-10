@@ -21,11 +21,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
   <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
+  <!-- style para menu --> 
+  <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
   <title>Usuarios</title>
 </head>
 <body>
   <div class="container">
-    <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
+    <?php   include "../../../plantillas/menu/menu_admin3.php"; ?>
     <div class="row">
       <div class="col-md-12">
         <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Usuarios </h3>
@@ -111,7 +113,9 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <!-- Plugin para listado, navegación y filtrado en tablas -->
   <script src="../../../css/assets/footable/js/footable.min.js"></script>
   <script src="../../../css/assets/footable/js/configTable.js"></script>
-    <script>
+  <!-- para el menu -->
+  <script src="../../../css/menu/js/menu.js"></script>
+  <script>
     $(document).ready(function() {
       $("#frm").validate({
         rules: {

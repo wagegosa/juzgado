@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
   <link rel="stylesheet" href="../css/assets/footable/css/footable.bootstrap.min.css">
+  <!-- style para menu --> 
+  <link rel="stylesheet" type="text/css" href="../css/menu/css/menu.css">
   <title>Reuniones</title>
 </head>
 <body>
@@ -37,7 +39,9 @@
   <!-- Plugin para listado, navegación y filtrado en tablas -->
   <script src="../css/assets/footable/js/footable.min.js"></script>
   <script src="../css/assets/footable/js/configTable.js"></script>
-    <script>
+  <!-- para el menu -->
+  <script src="../css/menu/js/menu.js"></script>
+  <script>
     $(document).ready(function() {
       $("#frm").validate({
         rules: {

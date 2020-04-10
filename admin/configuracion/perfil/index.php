@@ -22,11 +22,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
     <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
     <!--Paginación, filtrado de registros-->
     <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
+    <!-- menu -->
+    <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
     <title>Perfil</title>
   </head>
   <body>
     <div class="container">
-      <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
+      <?php   include "../../../plantillas/menu/menu_admin3.php"; ?>
       <div class="row">
         <div class="col-md-12">
           <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Perfil</h3>
@@ -78,8 +80,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
               ?></td>
 
               <td>
-                <!-- <input type="hidden" name="id" id="id" value="<?= $libro->idtbp_perfil;?>"> -->
-                <a href="Edi_Perfil.php?id=<?= $libro->idtbp_perfil;?>" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="Edi_Perfil.php?id=<?= $libro->idperfil;?>" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
               </td>
               </tr>
               <?php endforeach ?>
@@ -95,32 +96,34 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
     <script src="../../../css/assets/bootstrap/js/custom.js"></script>
     <script src="../../../css/assets/footable/js/footable.min.js"></script>
     <script src="../../../css/assets/footable/js/configTable.js"></script>
+    <!-- menu -->
+    <script src="../../../css/menu/js/menu.js"></script>
     <script>
       function myFunction() {
-      // Declare variables 
-      var input, filter, table, tr, td, i, j, visible;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("myTable");
-      tr = table.getElementsByTagName("tr");
-      // Loop through all table rows, and hide those who don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        visible = false;
-        /* Obtenemos todas las celdas de la fila, no sólo la primera */
-        td = tr[i].getElementsByTagName("td");
-        for (j = 0; j < td.length; j++) {
-          if (td[j] && td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            visible = true;
+        // Declare variables 
+        var input, filter, table, tr, td, i, j, visible;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          visible = false;
+          /* Obtenemos todas las celdas de la fila, no sólo la primera */
+          td = tr[i].getElementsByTagName("td");
+          for (j = 0; j < td.length; j++) {
+            if (td[j] && td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+              visible = true;
+            }
+          }
+          if (visible === true) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
           }
         }
-        if (visible === true) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
       }
-    }
-  </script>
+    </script>
 </body>
 </html>
 <?php } ?>

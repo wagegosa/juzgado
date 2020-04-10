@@ -19,11 +19,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
   <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
+  <!-- menu -->
+  <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
   <title>Naturaleza</title>
 </head>
 <body>
   <div class="container">
-    <?php include "../../../plantillas/menu/menu_admin2.php";
+    <?php include "../../../plantillas/menu/menu_admin3.php";
             if ($_GET != null) { ?>
                 <div class="alert alert-success"><?php echo isset($alert) ? $alert : ''; ?></div>
     <?php } ?>
@@ -95,6 +97,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <script src="../../../css/assets/bootstrap/js/custom.js"></script>
   <script src="../../../css/assets/footable/js/footable.min.js"></script>
   <script src="../../../css/assets/footable/js/configTable.js"></script>
+  <!-- menu -->
+  <script src="../../../css/menu/js/menu.js"></script>
   <script>
     function myFunction() {
       // Declare variables 

@@ -38,11 +38,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <link rel="stylesheet" href="../../../css/assets/bootstrap/fonts/font-awesome/css/font-awesome.min.css">
   <!--Paginación, filtrado de registros-->
   <link rel="stylesheet" href="../../../css/assets/footable/css/footable.bootstrap.min.css">
+  <!-- style para menu --> 
+  <link rel="stylesheet" type="text/css" href="../../../css/menu/css/menu.css">
   <title>Usuarios</title>
 </head>
 <body>
   <div class="container">
-    <?php   include "../../../plantillas/menu/menu_admin2.php"; ?>
+    <?php   include "../../../plantillas/menu/menu_admin3.php"; ?>
     <div class="row">
       <div class="col-md-12">
         <h3 class="page-header"><span class="glyphicons glyphicons-group"></span> Usuarios </h3>
@@ -94,13 +96,13 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
           <select name="perfil" id="perfil" class="form-control">
             <option value="0">Seleccione... </option>
             <?php foreach ($per as $listarP): 
-              if ($listarP->idtbp_perfil != $R['perfil']) {
+              if ($listarP->idperfil != $R['perfil']) {
             ?>
-                <option value="<?= $listarP->idtbp_perfil;?>"><?= $listarP->nombre;?></option>
+                <option value="<?= $listarP->idperfil;?>"><?= $listarP->nombre;?></option>
             <?php 
               } else {
             ?>
-                <option value="<?= $listarP->idtbp_perfil;?>" selected><?= $listarP->nombre;?></option>
+                <option value="<?= $listarP->idperfil;?>" selected><?= $listarP->nombre;?></option>
             <?php
               }
               
@@ -136,7 +138,7 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
         </div>
       </div>
       <div><br>
-        <input type="hidden" name="id" id="id" value="<?= $R['idtba_Usuario']?>">
+        <input type="hidden" name="id" id="id" value="<?= $_GET['id']?>">
         <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar</button>
       </div>
     </form>
@@ -152,6 +154,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   <!-- Plugin para listado, navegación y filtrado en tablas -->
   <script src="../../../css/assets/footable/js/footable.min.js"></script>
   <script src="../../../css/assets/footable/js/configTable.js"></script>
+  <!-- para el menu -->
+  <script src="../../../css/menu/js/menu.js"></script>
   <script>
     $(document).ready(function() {
       $("#frm").validate({

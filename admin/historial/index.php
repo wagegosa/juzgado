@@ -2,7 +2,7 @@
 session_start();
 if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
   date_default_timezone_set('America/Bogota');
-  $hoy = date('Y-m-d');
+  $hoy = date('Y-m-d'); 
   $min = date("Y-m-d",strtotime($hoy."- 6 month")); 
   require "../../config/General/connexion.php";
   include "../../config/ClassNaturaleza/ClassNaturaleza_sel.php";
@@ -27,6 +27,8 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
     <!-- Plugin para cuadro de selección personalizable con soporte para búsqueda. -->
     <link rel="stylesheet" href="../../css/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="../../css/plugins/select2/select2-bootstrap.css">
+    <!-- style para menu --> 
+    <link rel="stylesheet" type="text/css" href="../../css/menu/css/menu.css">
     <title>Historial</title>
   </head>
   <body>
@@ -62,16 +64,6 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
             <span class="help-block" id="error"></span>
           </div>
         </div>
-        <!-- Consecutivo -->
-        <!-- <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <label for="Hora">Consecutiv:o</label>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <input type="text" class="form-control" name="consecutivo" id="consecutivo" placeholder="Consecutivo" required="required">
-            <span class="help-block" id="error"></span>
-          </div>
-        </div> -->
         <!-- Demandante -->
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
@@ -143,18 +135,14 @@ if(!empty($_SESSION['active']) && $_SESSION['perfil'] === "1"){
         </div>
       </form>
     </div>
-    <!-- LIBRERIAS validadoras-->
-    <script src="../../css/assets/js/plugins/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../css/assets/bootstrap/js/jquery.min.js"></script>
     <script src="../../css/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Plugin para la validación de formularios -->
-    <script src="../../css/assets/jquery_validation/dist/jquery.validate.min.js"></script>
-    <script src="../../css/assets/jquery_validation/dist/localization/messages_es.js"></script>
-    <!-- Plugin para listado, navegación y filtrado en tablas -->
+    <script src="../../css/assets/bootstrap/js/popper.min.js"></script>
+    <script src="../../css/assets/bootstrap/js/custom.js"></script>
     <script src="../../css/assets/footable/js/footable.min.js"></script>
     <script src="../../css/assets/footable/js/configTable.js"></script>
-    <!-- Plugin para cuadro de selección personalizable con soporte para búsqueda. -->
-    <script src="../../js/plugins/select2/select2.full.js"></script>
-    <script src="../../js/plugins/select2/es.js"></script>
+    <!-- para el menu -->
+    <script src="../../css/menu/js/menu.js"></script>
     <script>
       $(document).ready(function() {
         $(".select2").select2({
