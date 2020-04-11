@@ -16,17 +16,6 @@
         </ul>
       </li>
     </ul>
-    <!-- Reporte -->
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Reporte
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="../../../admin/exportar/index.php">Generar Reportes</a></li>
-        </ul>
-      </li>
-    </ul>
     <!-- configuracion -->
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item dropdown">
